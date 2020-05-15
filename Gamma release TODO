@@ -1,0 +1,31 @@
+Refactor existing Beta code to comply with master tests
+    Hexagon to distance was broken
+    Pieces were allowed to go over exit locations
+Refactor MoveValidator to comply with new interface MovementValidator.
+    Now passed in via constructor injection to reduce coupling
+Update project with gamma files from document
+Implement observer methods
+    Test if message received from get piece on coordinate without a piece
+    Test if message received from make coordinate on invalid piece
+    Test if message received from invalid move.
+Implement interface for validating rules
+    Test its creation via XML
+Implement the interface (EscapeRuleValidator)
+Enable the EscapeRuleValidator to keep track of turns and who went last
+    Test if turns are counted
+    Test that player2 cannot go first
+    Test that player1 can go first
+Enable the EscapeRuleValidator to end the game if the turn limit is reached
+or scoreLimit max is reached by a player
+ -Check these at the end of every move
+    Test score limit reached
+    Test turn limit reach
+Enable the validator to conduct combat.
+Removed combat handling from move function into mostly rule validator
+Implement remove combat
+    Test that combat functions as before gamma release
+Implement point conflict combat
+    Test attacker winning
+    Test attacker loosing
+    Test ties
+Test that no more moves can be made once victory is declared in EscapeGameImp

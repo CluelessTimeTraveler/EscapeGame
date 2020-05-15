@@ -1,0 +1,41 @@
+1. Create distanceTo in SquareCoordinate
+	Tests
+	0,0 to 4,5 - 5
+	4,5 to 4,5 - 0
+	5,5 to 1,2 - 4
+	
+
+2. Create OrthoSquareCoordinate Class
+3. Create distanceTo in OrthoSquareCoordinate
+	Tests
+	1,1 to 2,2 - 2
+	1,2 to 3,5 - 5
+	
+2. Create HexCoordinate Class
+3. Create distanceTo in HexCoordinate
+	2,0 to -1, 1 - 4
+	0,2 to -1,0 - 3
+4. Create Hex, Ortho boards
+	Tests for put function..
+	SquarBoard(10,10)
+		Put piece at 11,10 - Throw exception
+		Put piece at 10,11 - Throw exception
+		Put Piece at 9,9 but its blocked - Throw exception 
+		Put piece at 9,9 but its clear - does not throw exception
+		Put piece at 9,9 but its exit - does not throw exception
+		
+		Same for OrthSquare
+		
+		Same for hex, but will not test out of range because infinite
+	
+5. Change board builder to support multiple boards via interface
+	Need to dynamically make board based on coordinateID from BoardInitializer
+		BoardFactoryMethod functional interface and corresponding FactoryMap in BoardBuilder
+	Need to dynamically create coordinate for any type of board
+		Interface (BuildableBoard) to allow boards to create coordinate of their respective types (createCoord(int x, int y)).
+
+6. Create XML files for Hex, OrthSquare boards
+	Test that these boards were created properly. 
+	Piece is placed at location.
+	Piece cannot be placed on blocked location
+	No piece on space without piece

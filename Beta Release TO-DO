@@ -1,0 +1,62 @@
+1. Refactor Alpha release code to comply with Alpha Master Tests.
+    Hex Distance code was fixed
+    Make Orthogonal Board from BoardInitializer was fixed.
+2. Implement the EscapeGameManager interface - EscapeGameManagerImplementation
+	Contains a board and methods as defined in the interface. Methods currently just return null
+	
+   
+3. Implement makeGameManager in EscapeGameBuilder
+		A) Test if GameManager is created via EscapeGameBuilder
+		
+		B) Using existing tested BoardBuilder, the escapeGameInitializer will be internally converted to a boardInitializer
+		for use in a new constructor of BoardBuilder that takes in a boardInitializer
+		
+		
+		
+		
+3. Tests for creating the game manager from XML
+	Are Pieces placed on the specified locations?
+		A)piecesOnBoard tests that a piece was placed on the right location
+	Can a new coordinate be created via the game manager?
+		B)piecesOnBoard tests that a coordinate can be made via game manager
+	
+
+3. Storing movement rules with each piece
+	testGameFoxAttributes - tests if a piece has the correct attributes based on PieceTypeInitializer in BoardBuilder
+
+4. Testing make move
+	Fox with Jump true  distance of 2 and Orthogonal Movement pattern
+	Hummingbird with fly of 8 and Omni movement pattern
+	Frog with distance value of 5 and Linear movement pattern
+	Board pattern outlined in TestGame
+	
+	Basic Rules that apply to all pieces:
+	1) No moving onto allied pieces
+	2) No moving onto a block location
+	3) No moving if there is no piece to move
+	4) To coordinate is invalid (out of bounds) - EscapeGameManager cannot create invalid coord because delegates to board
+	5) From coordinate is invalid (out of bounds) - "
+	
+	
+	Path finding
+	1) Check if path can be found for move from 1,3 to 4,1 with no reducing of getNeighbors 
+	2) Check if path can be found with reducing of neightbors (no blocks unless unblock, out of bounds coords)
+		Need way to get maxX and maxY coords from a board, added method to interface
+	3) Converted to stream filters to make adding more filters easier
+	4) Need to filter neighbors based on movement pattern.
+		Need the origin piece to decide what neighbors are valid for a given movement type
+		Certain movement patterns are only valid for certain board types
+			Orthboard - Linear, Omni, Orthogonal
+			HexBoard - Linear, Omni, 
+			SquareBoard - Linear, Omni, Orthogonal, Diagonal.
+		Also need parent piece to determine linear
+			
+	
+	5)Check if a path is larger than the allocated distance
+	6)Filter nieghbors based on jump
+	7)For infinite hex boards check if neighbor is outside of distanceTo range
+	8)Check if fly can pass through both  
+	
+
+
+	
